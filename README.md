@@ -1,7 +1,5 @@
 # 内容任务规划 Agent
 
-小影校招 AI Agent 开发岗位笔试，所选题目：**内容任务规划 Agent**。提供 Python CLI，输入主题、预算与截止时间，输出任务状态、素材、脚本、费用账本、保存的活动方案和完整执行记录。
-
 实现了原生函数调用的 `模型选择工具 → 执行 → 回传观察 → 模型下一步选择` 循环，以及预算/时间守卫、SQLite 状态持久化、重复执行去重和失败步骤续跑。
 
 **验证现状：50 项自动测试、14 组离线案例及 14 组真实模型场景的状态/费用检查通过。** 运行时使用 `qwen3.8-27b`，已实际观察到模型在报价 12 被拒后改选 8、部分素材成功后补充来源、保存失败后复用脚本续跑。真实模型记录见 [examples/live/](examples/live/)，[自动审计](examples/verification/live-audit.json)核对了响应 ID、动作顺序和状态保留。业务工具仍为合成模拟，单轮合成验收不代表真实运营效果或泛化成功率。
@@ -109,7 +107,7 @@ python scripts/audit_live.py
 
 首轮真实运行曾出现一条金额单位说明错误，账本仍正确。已在提示与报价中补充单位，并独立复验正常、预算降级、预算无解三场景，见 [单位修正记录](examples/unit-clarification/live/summary.json)与[评估文档](docs/03-evaluation.md)。原始记录保留，未手工改写。
 
-[GitHub Actions](.github/workflows/test.yml) 配置了 Windows/Linux × Python 3.10/3.12 矩阵；本地仅验证 Windows 3.12.4，远端 CI 尚未运行。
+[GitHub Actions](.github/workflows/test.yml) 配置了 Windows/Linux × Python 3.10/3.12 矩阵；本地验证环境为 Windows 3.12.4，跨平台结果以[对应提交的 Actions 运行](https://github.com/guapi086533/content-planner-agent/actions)为准。
 
 ## 目录与交付
 
@@ -126,4 +124,4 @@ docs/05-retrospective.md 学习、改进和下一步
 scripts/                重生成验证材料
 ```
 
-依用户选择，本轮先完成本地项目和 Git 提交，不创建或推送远程仓库。题号未提供，提交时填写试卷实际题号，不能自行编造。最终 SHA 用 `git rev-parse HEAD` 获取；后续 GitHub 交付步骤见 [docs/06-submission.md](docs/06-submission.md)。
+GitHub 交付入口：[guapi086533/content-planner-agent](https://github.com/guapi086533/content-planner-agent)，默认分支为 `main`。题号需填写试卷实际题号；最终 SHA 用 `git rev-parse HEAD` 获取，并确认与远程 `main` 一致。交付信息与复验步骤见 [docs/06-submission.md](docs/06-submission.md)。

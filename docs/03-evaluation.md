@@ -21,7 +21,7 @@ python scripts/run_examples.py --mode live --cases budget_impossible budget_repl
 
 上述工程测试、案例及独立复验均实际执行。测试详情见 [unittest.txt](../examples/verification/unittest.txt)；离线案例见 [offline/summary.json](../examples/offline/summary.json)；真实模型首轮汇总见 [live/summary.json](../examples/live/summary.json)；单位修正后的批次见 [unit-clarification/live/summary.json](../examples/unit-clarification/live/summary.json)。此前 qwen-plus 的 403 错误另存于 [provider-errors](../examples/provider-errors/qwen-plus/summary.json)。
 
-本次本地没有执行 GitHub Actions，不能声称已验证 Linux 或所有 Python 版本。CI 配置提交后可由远端实际运行。
+本地验证环境为 Windows / Python 3.12.4。GitHub Actions 配置了 Windows/Linux × Python 3.10/3.12 矩阵，跨平台结果以[最终提交对应的运行记录](https://github.com/guapi086533/content-planner-agent/actions)为准，不能由本地测试通过推断其他环境也通过。
 
 ## 必须验收点
 
