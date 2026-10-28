@@ -1,0 +1,55 @@
+test_active_lease_blocks_concurrent_execution (test_agent.AgentTests.test_active_lease_blocks_concurrent_execution) ... ok
+test_budget_12_to_8_changes_actions (test_agent.AgentTests.test_budget_12_to_8_changes_actions) ... ok
+test_completed_request_stays_replayed_even_with_resume (test_agent.AgentTests.test_completed_request_stays_replayed_even_with_resume) ... ok
+test_deadline_changes_variant (test_agent.AgentTests.test_deadline_changes_variant) ... ok
+test_dependency_time_consumption_requires_reestimate (test_agent.AgentTests.test_dependency_time_consumption_requires_reestimate) ... ok
+test_duplicate_execution_does_not_call_model_or_charge (test_agent.AgentTests.test_duplicate_execution_does_not_call_model_or_charge) ... ok
+test_duplicate_script_generation_is_free_and_immutable (test_agent.AgentTests.test_duplicate_script_generation_is_free_and_immutable) ... ok
+test_explicit_id_rejects_different_input (test_agent.AgentTests.test_explicit_id_rejects_different_input) ... ok
+test_fabricated_material_id_is_rejected (test_agent.AgentTests.test_fabricated_material_id_is_rejected) ... ok
+test_input_validation_rejects_bad_money (test_agent.AgentTests.test_input_validation_rejects_bad_money) ... ok
+test_interrupted_job_returns_explicit_incomplete (test_agent.AgentTests.test_interrupted_job_returns_explicit_incomplete) ... ok
+test_invalid_step_limits_are_rejected (test_agent.AgentTests.test_invalid_step_limits_are_rejected) ... ok
+test_live_model_error_does_not_switch_to_mock (test_agent.AgentTests.test_live_model_error_does_not_switch_to_mock) ... ok
+test_low_budget_selects_lean (test_agent.AgentTests.test_low_budget_selects_lean) ... ok
+test_missing_budget_does_not_call_model (test_agent.AgentTests.test_missing_budget_does_not_call_model) ... ok
+test_missing_deadline_does_not_call_model (test_agent.AgentTests.test_missing_deadline_does_not_call_model) ... ok
+test_model_cannot_generate_over_budget (test_agent.AgentTests.test_model_cannot_generate_over_budget) ... ok
+test_model_cannot_save_without_dependencies (test_agent.AgentTests.test_model_cannot_save_without_dependencies) ... ok
+test_no_affordable_option_has_gap_and_no_false_save (test_agent.AgentTests.test_no_affordable_option_has_gap_and_no_false_save) ... ok
+test_non_object_input_is_rejected (test_agent.AgentTests.test_non_object_input_is_rejected) ... ok
+test_normal_completes_with_exact_ledger (test_agent.AgentTests.test_normal_completes_with_exact_ledger) ... ok
+test_partial_results_are_merged_and_retained (test_agent.AgentTests.test_partial_results_are_merged_and_retained) ... ok
+test_past_deadline_calls_no_tools (test_agent.AgentTests.test_past_deadline_calls_no_tools) ... ok
+test_persistent_failure_never_marks_script_success (test_agent.AgentTests.test_persistent_failure_never_marks_script_success) ... ok
+test_primary_failure_switches_source (test_agent.AgentTests.test_primary_failure_switches_source) ... ok
+test_protocol_errors_are_bounded (test_agent.AgentTests.test_protocol_errors_are_bounded) ... ok
+test_repeated_incomplete_does_not_implicitly_resume (test_agent.AgentTests.test_repeated_incomplete_does_not_implicitly_resume) ... ok
+test_save_failure_resume_keeps_materials_and_script (test_agent.AgentTests.test_save_failure_resume_keeps_materials_and_script) ... ok
+test_script_failure_retries_only_failed_action (test_agent.AgentTests.test_script_failure_retries_only_failed_action) ... ok
+test_step_limit_bounds_tools_and_can_resume (test_agent.AgentTests.test_step_limit_bounds_tools_and_can_resume) ... ok
+test_sunk_cost_is_included_when_switching_variants (test_agent.AgentTests.test_sunk_cost_is_included_when_switching_variants) ... ok
+test_transaction_rolls_back_plan_and_state_together (test_agent.AgentTests.test_transaction_rolls_back_plan_and_state_together) ... ok
+test_unknown_tool_and_extra_parameters_are_rejected (test_agent.AgentTests.test_unknown_tool_and_extra_parameters_are_rejected) ... ok
+test_unrelated_materials_are_not_fabricated (test_agent.AgentTests.test_unrelated_materials_are_not_fabricated) ... ok
+test_validation_rejects_bad_dates_and_topic (test_agent.AgentTests.test_validation_rejects_bad_dates_and_topic) ... ok
+test_zero_budget_is_valid_but_not_feasible (test_agent.AgentTests.test_zero_budget_is_valid_but_not_feasible) ... ok
+test_cli_exports_result_trace_and_plan_then_replays (test_cli.CliTests.test_cli_exports_result_trace_and_plan_then_replays) ... ok
+test_cli_missing_input_returns_exit_2_and_removes_stale_plan (test_cli.CliTests.test_cli_missing_input_returns_exit_2_and_removes_stale_plan) ... ok
+test_dashscope_uses_supported_token_and_thinking_settings (test_models.ModelAdapterTests.test_dashscope_uses_supported_token_and_thinking_settings) ... ok
+test_http_error_does_not_leak_response_or_key (test_models.ModelAdapterTests.test_http_error_does_not_leak_response_or_key) ... ok
+test_malformed_json_arguments_are_rejected (test_models.ModelAdapterTests.test_malformed_json_arguments_are_rejected) ... ok
+test_missing_key_is_explicit (test_models.ModelAdapterTests.test_missing_key_is_explicit) ... ok
+test_multiple_tool_calls_are_rejected_without_execution (test_models.ModelAdapterTests.test_multiple_tool_calls_are_rejected_without_execution) ... ok
+test_native_tool_call_is_parsed_and_thinking_not_stored (test_models.ModelAdapterTests.test_native_tool_call_is_parsed_and_thinking_not_stored) ... ok
+test_network_failure_is_not_retried (test_models.ModelAdapterTests.test_network_failure_is_not_retried) ... ok
+test_nonfinite_json_arguments_are_rejected_before_checkpoint (test_models.ModelAdapterTests.test_nonfinite_json_arguments_are_rejected_before_checkpoint) ... ok
+test_react_feedback_is_sent_to_subsequent_model_call (test_models.ModelAdapterTests.test_react_feedback_is_sent_to_subsequent_model_call) ... ok
+test_text_only_response_is_not_treated_as_completed (test_models.ModelAdapterTests.test_text_only_response_is_not_treated_as_completed) ... ok
+test_truncated_response_is_rejected (test_models.ModelAdapterTests.test_truncated_response_is_rejected) ... ok
+test_unsafe_endpoint_is_rejected_and_local_endpoint_allowed (test_models.ModelAdapterTests.test_unsafe_endpoint_is_rejected_and_local_endpoint_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 0.936s
+
+OK

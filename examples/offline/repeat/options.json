@@ -1,0 +1,8 @@
+{
+  "reference_now": "2026-10-28T10:00:00+08:00",
+  "mode": "offline",
+  "faults": null,
+  "max_steps": 16,
+  "repeat": true,
+  "resume": false
+}

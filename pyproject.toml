@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "content-planner-agent"
+version = "0.1.0"
+description = "A bounded, stateful content campaign planning agent"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+content-agent = "content_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+content_agent = ["data/*.json"]

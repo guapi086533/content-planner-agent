@@ -1,0 +1,12 @@
+{
+  "reference_now": "2026-10-28T10:00:00+08:00",
+  "mode": "offline",
+  "faults": {
+    "once": {
+      "search_materials:primary": 1
+    }
+  },
+  "max_steps": 16,
+  "repeat": false,
+  "resume": false
+}

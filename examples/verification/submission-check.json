@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-28T13:50:47.116892+00:00",
+  "files_checked": 145,
+  "offline_cases": 14,
+  "tests_run": 50,
+  "errors": [],
+  "passed": true,
+  "live_model_effectiveness": "not verified; see examples/live and docs/03-evaluation.md"
+}

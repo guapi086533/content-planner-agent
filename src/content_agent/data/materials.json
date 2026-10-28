@@ -1,0 +1,8 @@
+[
+  {"id": "campus-01", "source": "primary", "title": "校园银杏步道", "tags": ["校园", "秋日", "秋季", "短视频", "campus", "autumn"], "kind": "video", "content": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。", "license": "synthetic-demo"},
+  {"id": "campus-02", "source": "primary", "title": "剪辑前后对比", "tags": ["校园", "剪辑", "短视频", "挑战", "campus"], "kind": "image", "content": "合成画面：手机原片与调色成片对比，不含真实产品效果承诺。", "license": "synthetic-demo"},
+  {"id": "campus-03", "source": "archive", "title": "宿舍创作花絮", "tags": ["校园", "秋日", "剪辑", "挑战", "短视频", "campus", "autumn"], "kind": "video", "content": "合成镜头：两位同学合作拍摄十秒生活片段，适合参与示范。", "license": "synthetic-demo"},
+  {"id": "campus-04", "source": "archive", "title": "活动投稿卡片", "tags": ["校园", "秋日", "挑战", "短视频", "campus"], "kind": "image", "content": "合成卡片：发布作品并附活动话题；奖项与奖励尚未设定，不得虚构。", "license": "synthetic-demo"},
+  {"id": "coffee-01", "source": "primary", "title": "秋日咖啡", "tags": ["咖啡", "coffee"], "kind": "image", "content": "合成画面：窗边一杯热咖啡，无价格或折扣信息。", "license": "synthetic-demo"},
+  {"id": "coffee-02", "source": "archive", "title": "咖啡制作", "tags": ["咖啡", "coffee"], "kind": "video", "content": "合成镜头：制作热咖啡的过程，可作为店铺活动素材。", "license": "synthetic-demo"}
+]

@@ -1,0 +1,1 @@
+{"sequence": 1, "run": 1, "kind": "model_error", "decision_source": "live", "observed_at": "2026-10-28T13:50:12+00:00", "code": "MODEL_UNAVAILABLE", "message": "模型服务 HTTP 403，错误码 AllocationQuota.FreeTierOnly；未回退到 Mock", "http_status": 403}

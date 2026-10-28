@@ -1,0 +1,12 @@
+{
+  "version": "synthetic-v1",
+  "currency": "SIM",
+  "search_minutes": 1,
+  "save_minutes": 1,
+  "variants": {
+    "premium": {"label": "精剪短片", "script_cents": 200, "production_cents": 1000, "script_minutes": 10, "production_minutes": 78, "min_materials": 2, "format": "60 秒短视频"},
+    "standard": {"label": "轻剪短片", "script_cents": 100, "production_cents": 700, "script_minutes": 5, "production_minutes": 38, "min_materials": 1, "format": "30 秒短视频"},
+    "lean": {"label": "图文活动", "script_cents": 100, "production_cents": 300, "script_minutes": 3, "production_minutes": 15, "min_materials": 1, "format": "三张图文卡片"}
+  },
+  "billing": "检索、估算、保存接口免费；脚本成功后计费；保存成功时预留制作费用；失败调用不计费。均为模拟单位，不涉及真实支付。"
+}

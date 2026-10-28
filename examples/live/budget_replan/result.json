@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "request_id": "live-budget_replan",
+  "status": "incomplete",
+  "reason": {
+    "code": "MODEL_UNAVAILABLE",
+    "message": "模型服务 HTTP 403，错误码 AllocationQuota.FreeTierOnly；未回退到 Mock",
+    "http_status": 403
+  },
+  "replayed": false,
+  "request": {
+    "topic": "校园秋日短视频挑战",
+    "budget_cents": 1000,
+    "deadline": "2026-10-28T10:00:00+00:00",
+    "preferred_variant": "premium"
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen-plus",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  },
+  "run_count": 1,
+  "total_decisions": 1,
+  "selected_variant": null,
+  "steps": {
+    "materials": {
+      "status": "pending",
+      "depends_on": []
+    },
+    "estimate": {
+      "status": "pending",
+      "depends_on": []
+    },
+    "script": {
+      "status": "pending",
+      "depends_on": [
+        "materials",
+        "estimate"
+      ]
+    },
+    "save": {
+      "status": "pending",
+      "depends_on": [
+        "script",
+        "estimate"
+      ]
+    }
+  },
+  "materials": [],
+  "scripts": {},
+  "quotes": {},
+  "cost": {
+    "currency": "SIM",
+    "budget_units": 10.0,
+    "total_units": 0.0,
+    "incurred_units": 0.0,
+    "reserved_units": 0.0,
+    "remaining_units": 10.0,
+    "ledger": []
+  },
+  "elapsed_simulated_minutes": 0,
+  "reference_started_at": "2026-10-28T10:00:00+08:00",
+  "saved_plan": null,
+  "trace": [
+    {
+      "sequence": 1,
+      "run": 1,
+      "kind": "model_error",
+      "decision_source": "live",
+      "observed_at": "2026-10-28T13:50:12+00:00",
+      "code": "MODEL_UNAVAILABLE",
+      "message": "模型服务 HTTP 403，错误码 AllocationQuota.FreeTierOnly；未回退到 Mock",
+      "http_status": 403
+    }
+  ],
+  "mock_boundary": "业务工具和费用均为合成模拟。offline 是规则策略，只验证工程流程；live 才调用外部模型，不保证效果。"
+}

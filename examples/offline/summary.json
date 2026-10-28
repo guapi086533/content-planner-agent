@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-10-28T13:50:12.323777+00:00",
+  "reference_now": "2026-10-28T10:00:00+08:00",
+  "mode": "offline",
+  "cases": [
+    {
+      "case": "normal",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "missing_budget",
+      "expected_status": "needs_input",
+      "actual_status": "needs_input",
+      "total_units": 0.0,
+      "reason_code": "MISSING_FIELDS",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "missing_deadline",
+      "expected_status": "needs_input",
+      "actual_status": "needs_input",
+      "total_units": 0.0,
+      "reason_code": "MISSING_FIELDS",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "tool_failure",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "budget_replan",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 8.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "budget_impossible",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "NO_FEASIBLE_PLAN",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "repeat",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "partial_success",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "resume_save",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 8.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "persistent_failure",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "TOOL_FAILURE",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "no_materials",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "NO_MATERIALS",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "deadline_replan",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 4.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "deadline_impossible",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "NO_FEASIBLE_PLAN",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "step_limit",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "STEP_LIMIT",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "offline",
+      "real_model_success_evidence": false
+    }
+  ],
+  "boundary": "offline 仅证明规则 Mock 与工程约束。live 出现 MODEL_UNAVAILABLE 时不构成真实决策成功证据。"
+}

@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "request_id": "offline-budget_impossible",
+  "status": "incomplete",
+  "reason": {
+    "code": "NO_FEASIBLE_PLAN",
+    "message": "所有档位均超预算或超时，缺口见实际估算结果",
+    "observed_gaps": [
+      {
+        "variant": "premium",
+        "total_cents": 1200,
+        "spent_cents": 0,
+        "script_cents": 200,
+        "production_cents": 1000,
+        "remaining_minutes": 89,
+        "ready_by": "2026-10-28T11:29:00+08:00",
+        "budget_gap_cents": 900,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false
+      },
+      {
+        "variant": "standard",
+        "total_cents": 800,
+        "spent_cents": 0,
+        "script_cents": 100,
+        "production_cents": 700,
+        "remaining_minutes": 44,
+        "ready_by": "2026-10-28T10:44:00+08:00",
+        "budget_gap_cents": 500,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false
+      },
+      {
+        "variant": "lean",
+        "total_cents": 400,
+        "spent_cents": 0,
+        "script_cents": 100,
+        "production_cents": 300,
+        "remaining_minutes": 19,
+        "ready_by": "2026-10-28T10:19:00+08:00",
+        "budget_gap_cents": 100,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false
+      }
+    ]
+  },
+  "replayed": false,
+  "request": {
+    "topic": "校园秋日短视频挑战",
+    "budget_cents": 300,
+    "deadline": "2026-10-28T10:00:00+00:00",
+    "preferred_variant": "premium"
+  },
+  "model": {
+    "mode": "offline",
+    "name": "offline-rules-v1"
+  },
+  "run_count": 1,
+  "total_decisions": 4,
+  "selected_variant": null,
+  "steps": {
+    "materials": {
+      "status": "pending",
+      "depends_on": []
+    },
+    "estimate": {
+      "status": "blocked",
+      "depends_on": [],
+      "variant": "lean"
+    },
+    "script": {
+      "status": "pending",
+      "depends_on": [
+        "materials",
+        "estimate"
+      ]
+    },
+    "save": {
+      "status": "pending",
+      "depends_on": [
+        "script",
+        "estimate"
+      ]
+    }
+  },
+  "materials": [],
+  "scripts": {},
+  "quotes": {
+    "premium": {
+      "variant": "premium",
+      "total_cents": 1200,
+      "spent_cents": 0,
+      "script_cents": 200,
+      "production_cents": 1000,
+      "remaining_minutes": 89,
+      "ready_by": "2026-10-28T11:29:00+08:00",
+      "budget_gap_cents": 900,
+      "deadline_gap_minutes": 0,
+      "within_budget": false,
+      "within_deadline": true,
+      "feasible": false
+    },
+    "standard": {
+      "variant": "standard",
+      "total_cents": 800,
+      "spent_cents": 0,
+      "script_cents": 100,
+      "production_cents": 700,
+      "remaining_minutes": 44,
+      "ready_by": "2026-10-28T10:44:00+08:00",
+      "budget_gap_cents": 500,
+      "deadline_gap_minutes": 0,
+      "within_budget": false,
+      "within_deadline": true,
+      "feasible": false
+    },
+    "lean": {
+      "variant": "lean",
+      "total_cents": 400,
+      "spent_cents": 0,
+      "script_cents": 100,
+      "production_cents": 300,
+      "remaining_minutes": 19,
+      "ready_by": "2026-10-28T10:19:00+08:00",
+      "budget_gap_cents": 100,
+      "deadline_gap_minutes": 0,
+      "within_budget": false,
+      "within_deadline": true,
+      "feasible": false
+    }
+  },
+  "cost": {
+    "currency": "SIM",
+    "budget_units": 3.0,
+    "total_units": 0.0,
+    "incurred_units": 0.0,
+    "reserved_units": 0.0,
+    "remaining_units": 3.0,
+    "ledger": []
+  },
+  "elapsed_simulated_minutes": 0,
+  "reference_started_at": "2026-10-28T10:00:00+08:00",
+  "saved_plan": null,
+  "trace": [
+    {
+      "sequence": 1,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "offline",
+      "model": "offline-rules-v1",
+      "tool": "estimate_cost",
+      "parameters": {
+        "variant": "premium",
+        "reason": "先核对首选方案费用和时间"
+      },
+      "rationale": "先核对首选方案费用和时间",
+      "observation": {
+        "status": "rejected",
+        "variant": "premium",
+        "total_cents": 1200,
+        "spent_cents": 0,
+        "script_cents": 200,
+        "production_cents": 1000,
+        "remaining_minutes": 89,
+        "ready_by": "2026-10-28T11:29:00+08:00",
+        "budget_gap_cents": 900,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false,
+        "alternatives": [
+          {
+            "variant": "standard",
+            "total_cents": 800,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 700,
+            "remaining_minutes": 44,
+            "ready_by": "2026-10-28T10:44:00+08:00",
+            "budget_gap_cents": 500,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          },
+          {
+            "variant": "lean",
+            "total_cents": 400,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 300,
+            "remaining_minutes": 19,
+            "ready_by": "2026-10-28T10:19:00+08:00",
+            "budget_gap_cents": 100,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          }
+        ]
+      },
+      "observed_at": "2026-10-28T13:50:12+00:00",
+      "response_id": null,
+      "usage": {}
+    },
+    {
+      "sequence": 2,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "offline",
+      "model": "offline-rules-v1",
+      "tool": "estimate_cost",
+      "parameters": {
+        "variant": "standard",
+        "reason": "上次估算不满足预算或时间，改估替代档位"
+      },
+      "rationale": "上次估算不满足预算或时间，改估替代档位",
+      "observation": {
+        "status": "rejected",
+        "variant": "standard",
+        "total_cents": 800,
+        "spent_cents": 0,
+        "script_cents": 100,
+        "production_cents": 700,
+        "remaining_minutes": 44,
+        "ready_by": "2026-10-28T10:44:00+08:00",
+        "budget_gap_cents": 500,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false,
+        "alternatives": [
+          {
+            "variant": "premium",
+            "total_cents": 1200,
+            "spent_cents": 0,
+            "script_cents": 200,
+            "production_cents": 1000,
+            "remaining_minutes": 89,
+            "ready_by": "2026-10-28T11:29:00+08:00",
+            "budget_gap_cents": 900,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          },
+          {
+            "variant": "lean",
+            "total_cents": 400,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 300,
+            "remaining_minutes": 19,
+            "ready_by": "2026-10-28T10:19:00+08:00",
+            "budget_gap_cents": 100,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          }
+        ]
+      },
+      "observed_at": "2026-10-28T13:50:12+00:00",
+      "response_id": null,
+      "usage": {}
+    },
+    {
+      "sequence": 3,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "offline",
+      "model": "offline-rules-v1",
+      "tool": "estimate_cost",
+      "parameters": {
+        "variant": "lean",
+        "reason": "上次估算不满足预算或时间，改估替代档位"
+      },
+      "rationale": "上次估算不满足预算或时间，改估替代档位",
+      "observation": {
+        "status": "rejected",
+        "variant": "lean",
+        "total_cents": 400,
+        "spent_cents": 0,
+        "script_cents": 100,
+        "production_cents": 300,
+        "remaining_minutes": 19,
+        "ready_by": "2026-10-28T10:19:00+08:00",
+        "budget_gap_cents": 100,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false,
+        "alternatives": [
+          {
+            "variant": "premium",
+            "total_cents": 1200,
+            "spent_cents": 0,
+            "script_cents": 200,
+            "production_cents": 1000,
+            "remaining_minutes": 89,
+            "ready_by": "2026-10-28T11:29:00+08:00",
+            "budget_gap_cents": 900,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          },
+          {
+            "variant": "standard",
+            "total_cents": 800,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 700,
+            "remaining_minutes": 44,
+            "ready_by": "2026-10-28T10:44:00+08:00",
+            "budget_gap_cents": 500,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          }
+        ]
+      },
+      "observed_at": "2026-10-28T13:50:12+00:00",
+      "response_id": null,
+      "usage": {}
+    },
+    {
+      "sequence": 4,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "offline",
+      "model": "offline-rules-v1",
+      "tool": "finish",
+      "parameters": {
+        "code": "NO_FEASIBLE_PLAN",
+        "reason": "所有档位均超预算或超时，缺口见实际估算结果"
+      },
+      "rationale": "所有档位均超预算或超时，缺口见实际估算结果",
+      "observation": {
+        "status": "stopped",
+        "code": "NO_FEASIBLE_PLAN",
+        "message": "所有档位均超预算或超时，缺口见实际估算结果",
+        "observed_gaps": [
+          {
+            "variant": "premium",
+            "total_cents": 1200,
+            "spent_cents": 0,
+            "script_cents": 200,
+            "production_cents": 1000,
+            "remaining_minutes": 89,
+            "ready_by": "2026-10-28T11:29:00+08:00",
+            "budget_gap_cents": 900,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          },
+          {
+            "variant": "standard",
+            "total_cents": 800,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 700,
+            "remaining_minutes": 44,
+            "ready_by": "2026-10-28T10:44:00+08:00",
+            "budget_gap_cents": 500,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          },
+          {
+            "variant": "lean",
+            "total_cents": 400,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 300,
+            "remaining_minutes": 19,
+            "ready_by": "2026-10-28T10:19:00+08:00",
+            "budget_gap_cents": 100,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          }
+        ]
+      },
+      "observed_at": "2026-10-28T13:50:12+00:00",
+      "response_id": null,
+      "usage": {}
+    }
+  ],
+  "mock_boundary": "业务工具和费用均为合成模拟。offline 是规则策略，只验证工程流程；live 才调用外部模型，不保证效果。"
+}

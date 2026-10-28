@@ -1,0 +1,2 @@
+# Python >= 3.10. Runtime and tests use only the Python standard library.
+# Install the package with: python -m pip install -e . --no-build-isolation
