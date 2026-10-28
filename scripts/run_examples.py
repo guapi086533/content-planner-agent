@@ -42,9 +42,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["offline", "live"], default="offline")
     parser.add_argument("--cases", nargs="+", choices=list(CASES))
+    parser.add_argument("--output-root", type=Path, default=ROOT / "examples", help="独立复验批次的输出根目录")
     args = parser.parse_args()
     names = args.cases or list(CASES)
-    mode_root = ROOT / "examples" / args.mode
+    mode_root = args.output_root / args.mode
     mode_root.mkdir(parents=True, exist_ok=True)
     rows = []
     with tempfile.TemporaryDirectory(prefix="content-agent-examples-") as temporary:
@@ -81,7 +82,7 @@ def main():
                        "matches_expected_status_and_cost": passed, "decision_mode": args.mode,
                        "real_model_success_evidence": args.mode == "live" and result["status"] == "completed" and any(e.get("response_id") for e in result["trace"])}
                 rows.append(row)
-                print(json.dumps(row, ensure_ascii=False))
+                print(json.dumps(row, ensure_ascii=False), flush=True)
         finally:
             store.close()
     write_json(mode_root / "summary.json", {"generated_at": utcnow().isoformat(), "reference_now": NOW.isoformat(), "mode": args.mode, "cases": rows,

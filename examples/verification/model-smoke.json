@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-28T13:58:01.499208+00:00",
+  "ok": true,
+  "model": "qwen3.8-27b",
+  "tool": "estimate_cost",
+  "parameters": {
+    "variant": "premium",
+    "reason": "preferred_variant 为 premium，先取得该档位真实估算再决定后续。"
+  },
+  "response_id": "chatcmpl-61f02d13-6e46-9806-bd24-171a83b97b4b",
+  "usage": {
+    "completion_tokens": 74,
+    "prompt_tokens": 1963,
+    "total_tokens": 2037
+  }
+}

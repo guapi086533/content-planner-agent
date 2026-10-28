@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-28T14:06:59.067510+00:00",
+  "model": "qwen3.8-27b",
+  "checks": {
+    "all_14_status_and_cost_expectations": true,
+    "normal_saved_premium_for_12": true,
+    "replan_observed_12_rejection_before_selecting_8": true,
+    "replan_has_native_model_response_ids": true,
+    "injected_failure_visible_then_completed": true,
+    "repeat_does_not_add_calls_or_cost": true,
+    "resume_retains_successful_script_and_materials": true,
+    "partial_materials_retained_in_saved_plan": true,
+    "unit_recheck_three_status_and_cost_expectations": true,
+    "unit_recheck_explains_3_sim_not_300_sim": true
+  },
+  "passed": true,
+  "unique_model_responses": 65,
+  "usage_deduplicated_by_response_id": {
+    "prompt_tokens": 258631,
+    "completion_tokens": 5198,
+    "total_tokens": 263829
+  },
+  "unit_recheck_unique_responses": 11,
+  "unit_recheck_tokens": 44630,
+  "resume_new_actions": [
+    "save_plan"
+  ],
+  "scope": "首轮 14 场景及单位修正后 3 场景；调用外部真实模型，业务工具仍为合成工具，不代表泛化成功率。"
+}

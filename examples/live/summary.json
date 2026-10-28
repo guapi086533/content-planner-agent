@@ -1,35 +1,145 @@
 {
-  "generated_at": "2026-10-28T13:50:12.889248+00:00",
+  "generated_at": "2026-10-28T14:01:57.484452+00:00",
   "reference_now": "2026-10-28T10:00:00+08:00",
   "mode": "live",
   "cases": [
     {
       "case": "normal",
       "expected_status": "completed",
-      "actual_status": "incomplete",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "missing_budget",
+      "expected_status": "needs_input",
+      "actual_status": "needs_input",
       "total_units": 0.0,
-      "reason_code": "MODEL_UNAVAILABLE",
-      "matches_expected_status_and_cost": false,
+      "reason_code": "MISSING_FIELDS",
+      "matches_expected_status_and_cost": true,
       "decision_mode": "live",
       "real_model_success_evidence": false
     },
     {
-      "case": "budget_replan",
-      "expected_status": "completed",
-      "actual_status": "incomplete",
+      "case": "missing_deadline",
+      "expected_status": "needs_input",
+      "actual_status": "needs_input",
       "total_units": 0.0,
-      "reason_code": "MODEL_UNAVAILABLE",
-      "matches_expected_status_and_cost": false,
+      "reason_code": "MISSING_FIELDS",
+      "matches_expected_status_and_cost": true,
       "decision_mode": "live",
       "real_model_success_evidence": false
     },
     {
       "case": "tool_failure",
       "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "budget_replan",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 8.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "budget_impossible",
+      "expected_status": "incomplete",
       "actual_status": "incomplete",
       "total_units": 0.0,
-      "reason_code": "MODEL_UNAVAILABLE",
-      "matches_expected_status_and_cost": false,
+      "reason_code": "NO_FEASIBLE_PLAN",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "repeat",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "partial_success",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 12.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "resume_save",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 8.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "persistent_failure",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "TOOL_FAILURE",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "no_materials",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "NO_MATERIALS",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "deadline_replan",
+      "expected_status": "completed",
+      "actual_status": "completed",
+      "total_units": 4.0,
+      "reason_code": null,
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": true
+    },
+    {
+      "case": "deadline_impossible",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "NO_FEASIBLE_PLAN",
+      "matches_expected_status_and_cost": true,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "step_limit",
+      "expected_status": "incomplete",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "STEP_LIMIT",
+      "matches_expected_status_and_cost": true,
       "decision_mode": "live",
       "real_model_success_evidence": false
     }

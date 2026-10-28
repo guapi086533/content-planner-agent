@@ -8,6 +8,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote
 
+from audit_live import audit
+
 ROOT = Path(__file__).resolve().parents[1]
 required = ["README.md", "requirements.txt", "pyproject.toml", ".env.example",
             "docs/01-requirements.md", "docs/02-solution.md", "docs/03-evaluation.md",
@@ -44,6 +46,9 @@ for path in (ROOT / "examples").rglob("result.json"):
 tests = json.loads((ROOT / "examples/verification/summary.json").read_text(encoding="utf-8"))
 if not tests["passed"] or tests["tests_run"] < 50:
     errors.append("tests are not passing or not current")
+live = audit()
+if not live["passed"]:
+    errors.append("live trace audit did not pass")
 tracked = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True)
 if tracked.returncode == 0:
     for name in tracked.stdout.decode("utf-8").split("\0"):
@@ -51,7 +56,8 @@ if tracked.returncode == 0:
             errors.append(f"unexpected runtime file tracked: {name}")
 summary = {"checked_at": datetime.now(timezone.utc).isoformat(), "files_checked": len(paths),
            "offline_cases": len(offline["cases"]), "tests_run": tests["tests_run"], "errors": errors, "passed": not errors,
-           "live_model_effectiveness": "not verified; see examples/live and docs/03-evaluation.md"}
+           "live_model_effectiveness": "qwen3.8-27b observed tool feedback and replanned; limited synthetic evaluation",
+           "live_trace_audit_passed": live["passed"], "unique_model_responses": live["unique_model_responses"]}
 (ROOT / "examples/verification/submission-check.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(summary, ensure_ascii=False, indent=2))
 raise SystemExit(0 if not errors else 1)

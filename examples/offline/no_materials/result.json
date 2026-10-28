@@ -54,6 +54,10 @@
       "variant": "premium",
       "total_cents": 1200,
       "spent_cents": 0,
+      "currency": "SIM",
+      "total_units": 12.0,
+      "budget_units": 20.0,
+      "budget_gap_units": 0.0,
       "script_cents": 200,
       "production_cents": 1000,
       "remaining_minutes": 89,
@@ -95,6 +99,10 @@
         "variant": "premium",
         "total_cents": 1200,
         "spent_cents": 0,
+        "currency": "SIM",
+        "total_units": 12.0,
+        "budget_units": 20.0,
+        "budget_gap_units": 0.0,
         "script_cents": 200,
         "production_cents": 1000,
         "remaining_minutes": 89,
@@ -109,6 +117,10 @@
             "variant": "standard",
             "total_cents": 800,
             "spent_cents": 0,
+            "currency": "SIM",
+            "total_units": 8.0,
+            "budget_units": 20.0,
+            "budget_gap_units": 0.0,
             "script_cents": 100,
             "production_cents": 700,
             "remaining_minutes": 44,
@@ -123,6 +135,10 @@
             "variant": "lean",
             "total_cents": 400,
             "spent_cents": 0,
+            "currency": "SIM",
+            "total_units": 4.0,
+            "budget_units": 20.0,
+            "budget_gap_units": 0.0,
             "script_cents": 100,
             "production_cents": 300,
             "remaining_minutes": 19,
@@ -135,7 +151,7 @@
           }
         ]
       },
-      "observed_at": "2026-10-28T13:50:12+00:00",
+      "observed_at": "2026-10-28T14:06:59+00:00",
       "response_id": null,
       "usage": {}
     },
@@ -160,7 +176,7 @@
         "retained_count": 0,
         "cached": false
       },
-      "observed_at": "2026-10-28T13:50:12+00:00",
+      "observed_at": "2026-10-28T14:06:59+00:00",
       "response_id": null,
       "usage": {}
     },
@@ -185,7 +201,7 @@
         "retained_count": 0,
         "cached": false
       },
-      "observed_at": "2026-10-28T13:50:12+00:00",
+      "observed_at": "2026-10-28T14:06:59+00:00",
       "response_id": null,
       "usage": {}
     },
@@ -206,7 +222,7 @@
         "code": "NO_MATERIALS",
         "message": "两个来源均无法提供足量相关素材"
       },
-      "observed_at": "2026-10-28T13:50:12+00:00",
+      "observed_at": "2026-10-28T14:06:59+00:00",
       "response_id": null,
       "usage": {}
     }

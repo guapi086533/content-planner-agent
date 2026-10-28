@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "request_id": "live-resume_save",
+  "status": "completed",
+  "reason": null,
+  "replayed": false,
+  "request": {
+    "topic": "校园秋日短视频挑战",
+    "budget_cents": 1000,
+    "deadline": "2026-10-28T10:00:00+00:00",
+    "preferred_variant": "premium"
+  },
+  "model": {
+    "mode": "live",
+    "name": "qwen3.8-27b",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  },
+  "run_count": 2,
+  "total_decisions": 6,
+  "selected_variant": "standard",
+  "steps": {
+    "materials": {
+      "status": "succeeded",
+      "depends_on": []
+    },
+    "estimate": {
+      "status": "succeeded",
+      "depends_on": [],
+      "variant": "standard"
+    },
+    "script": {
+      "status": "succeeded",
+      "depends_on": [
+        "materials",
+        "estimate"
+      ],
+      "variant": "standard",
+      "artifact_id": "script-73fafa9d7c97"
+    },
+    "save": {
+      "status": "succeeded",
+      "depends_on": [
+        "script",
+        "estimate"
+      ],
+      "variant": "standard"
+    }
+  },
+  "materials": [
+    {
+      "id": "campus-01",
+      "source": "primary",
+      "title": "校园银杏步道",
+      "tags": [
+        "校园",
+        "秋日",
+        "秋季",
+        "短视频",
+        "campus",
+        "autumn"
+      ],
+      "kind": "video",
+      "content": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。",
+      "license": "synthetic-demo"
+    },
+    {
+      "id": "campus-02",
+      "source": "primary",
+      "title": "剪辑前后对比",
+      "tags": [
+        "校园",
+        "剪辑",
+        "短视频",
+        "挑战",
+        "campus"
+      ],
+      "kind": "image",
+      "content": "合成画面：手机原片与调色成片对比，不含真实产品效果承诺。",
+      "license": "synthetic-demo"
+    }
+  ],
+  "scripts": {
+    "standard": {
+      "id": "script-73fafa9d7c97",
+      "variant": "standard",
+      "title": "校园秋日短视频挑战",
+      "angle": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。",
+      "format": "30 秒短视频",
+      "material_ids": [
+        "campus-01",
+        "campus-02"
+      ],
+      "sections": [
+        {
+          "stage": "开场",
+          "text": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。：用一个生活片段引出「校园秋日短视频挑战」。"
+        },
+        {
+          "stage": "主体",
+          "text": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。 / 合成画面：手机原片与调色成片对比，不含真实产品效果承诺。"
+        },
+        {
+          "stage": "行动",
+          "text": "邀请观众围绕主题创作并发布作品；具体渠道、活动话题与审核规则由运营确认。"
+        }
+      ],
+      "generator": "local-template-v1",
+      "requires_editorial_review": true
+    }
+  },
+  "quotes": {
+    "premium": {
+      "variant": "premium",
+      "total_cents": 1200,
+      "spent_cents": 0,
+      "script_cents": 200,
+      "production_cents": 1000,
+      "remaining_minutes": 89,
+      "ready_by": "2026-10-28T11:29:00+08:00",
+      "budget_gap_cents": 200,
+      "deadline_gap_minutes": 0,
+      "within_budget": false,
+      "within_deadline": true,
+      "feasible": false
+    },
+    "standard": {
+      "variant": "standard",
+      "total_cents": 800,
+      "spent_cents": 0,
+      "script_cents": 100,
+      "production_cents": 700,
+      "remaining_minutes": 44,
+      "ready_by": "2026-10-28T10:45:00+08:00",
+      "budget_gap_cents": 0,
+      "deadline_gap_minutes": 0,
+      "within_budget": true,
+      "within_deadline": true,
+      "feasible": true
+    }
+  },
+  "cost": {
+    "currency": "SIM",
+    "budget_units": 10.0,
+    "total_units": 8.0,
+    "incurred_units": 1.0,
+    "reserved_units": 7.0,
+    "remaining_units": 2.0,
+    "ledger": [
+      {
+        "id": "script:standard",
+        "kind": "incurred",
+        "cents": 100
+      },
+      {
+        "id": "production:standard",
+        "kind": "reserved",
+        "cents": 700
+      }
+    ]
+  },
+  "elapsed_simulated_minutes": 7,
+  "reference_started_at": "2026-10-28T10:00:00+08:00",
+  "saved_plan": {
+    "id": "plan-f74a88606084",
+    "request_id": "live-resume_save",
+    "topic": "校园秋日短视频挑战",
+    "variant": "standard",
+    "format": "30 秒短视频",
+    "script": {
+      "id": "script-73fafa9d7c97",
+      "variant": "standard",
+      "title": "校园秋日短视频挑战",
+      "angle": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。",
+      "format": "30 秒短视频",
+      "material_ids": [
+        "campus-01",
+        "campus-02"
+      ],
+      "sections": [
+        {
+          "stage": "开场",
+          "text": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。：用一个生活片段引出「校园秋日短视频挑战」。"
+        },
+        {
+          "stage": "主体",
+          "text": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。 / 合成画面：手机原片与调色成片对比，不含真实产品效果承诺。"
+        },
+        {
+          "stage": "行动",
+          "text": "邀请观众围绕主题创作并发布作品；具体渠道、活动话题与审核规则由运营确认。"
+        }
+      ],
+      "generator": "local-template-v1",
+      "requires_editorial_review": true
+    },
+    "material_ids": [
+      "campus-01",
+      "campus-02"
+    ],
+    "total_cents": 800,
+    "budget_cents": 1000,
+    "ledger": [
+      {
+        "id": "script:standard",
+        "kind": "incurred",
+        "cents": 100
+      },
+      {
+        "id": "production:standard",
+        "kind": "reserved",
+        "cents": 700
+      }
+    ],
+    "deadline": "2026-10-28T10:00:00+00:00",
+    "projected_ready_by": "2026-10-28T10:45:00+08:00",
+    "saved_at": "2026-10-28T14:00:39+00:00",
+    "reference_saved_at": "2026-10-28T10:07:00+08:00",
+    "execution_plan": [
+      {
+        "step": "materials",
+        "owner": "Agent",
+        "status": "succeeded",
+        "depends_on": []
+      },
+      {
+        "step": "estimate",
+        "owner": "Agent",
+        "status": "succeeded",
+        "depends_on": []
+      },
+      {
+        "step": "script",
+        "owner": "Agent",
+        "status": "succeeded",
+        "depends_on": [
+          "materials",
+          "estimate"
+        ]
+      },
+      {
+        "step": "save",
+        "owner": "Agent",
+        "status": "succeeded",
+        "depends_on": [
+          "script",
+          "estimate"
+        ]
+      },
+      {
+        "step": "production",
+        "owner": "运营/制作",
+        "status": "planned",
+        "depends_on": [
+          "save"
+        ],
+        "start_at": "2026-10-28T10:07:00+08:00",
+        "end_at": "2026-10-28T10:45:00+08:00"
+      },
+      {
+        "step": "review_and_publish",
+        "owner": "运营",
+        "status": "pending",
+        "depends_on": [
+          "production"
+        ],
+        "note": "确认文案、渠道与活动规则后执行。预估完成时间只覆盖素材制作，不含人工审核排队。"
+      }
+    ],
+    "scope": "已保存可执行活动方案；制作与发布尚未执行，费用为模拟已发生及预留金额。"
+  },
+  "trace": [
+    {
+      "sequence": 1,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "live",
+      "model": "qwen3.8-27b",
+      "tool": "estimate_cost",
+      "parameters": {
+        "variant": "premium",
+        "reason": "preferred_variant 为 premium，先取得其真实费用与完成时间估算。"
+      },
+      "rationale": "preferred_variant 为 premium，先取得其真实费用与完成时间估算。",
+      "observation": {
+        "status": "rejected",
+        "variant": "premium",
+        "total_cents": 1200,
+        "spent_cents": 0,
+        "script_cents": 200,
+        "production_cents": 1000,
+        "remaining_minutes": 89,
+        "ready_by": "2026-10-28T11:29:00+08:00",
+        "budget_gap_cents": 200,
+        "deadline_gap_minutes": 0,
+        "within_budget": false,
+        "within_deadline": true,
+        "feasible": false,
+        "alternatives": [
+          {
+            "variant": "standard",
+            "total_cents": 800,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 700,
+            "remaining_minutes": 44,
+            "ready_by": "2026-10-28T10:44:00+08:00",
+            "budget_gap_cents": 0,
+            "deadline_gap_minutes": 0,
+            "within_budget": true,
+            "within_deadline": true,
+            "feasible": true
+          },
+          {
+            "variant": "lean",
+            "total_cents": 400,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 300,
+            "remaining_minutes": 19,
+            "ready_by": "2026-10-28T10:19:00+08:00",
+            "budget_gap_cents": 0,
+            "deadline_gap_minutes": 0,
+            "within_budget": true,
+            "within_deadline": true,
+            "feasible": true
+          }
+        ]
+      },
+      "observed_at": "2026-10-28T14:00:23+00:00",
+      "response_id": "chatcmpl-4440a596-250f-9e3e-b326-af3d254ed505",
+      "usage": {
+        "completion_tokens": 76,
+        "prompt_tokens": 2005,
+        "total_tokens": 2081
+      }
+    },
+    {
+      "sequence": 2,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "live",
+      "model": "qwen3.8-27b",
+      "tool": "search_materials",
+      "parameters": {
+        "query": "校园秋日 落叶 操场 学生 短视频",
+        "source": "primary",
+        "reason": "premium不可行，转用可行的 standard（需1个素材），先检索主题相关素材。"
+      },
+      "rationale": "premium不可行，转用可行的 standard（需1个素材），先检索主题相关素材。",
+      "observation": {
+        "status": "ok",
+        "source": "primary",
+        "materials": [
+          {
+            "id": "campus-01",
+            "source": "primary",
+            "title": "校园银杏步道",
+            "tags": [
+              "校园",
+              "秋日",
+              "秋季",
+              "短视频",
+              "campus",
+              "autumn"
+            ],
+            "kind": "video",
+            "content": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。",
+            "license": "synthetic-demo"
+          },
+          {
+            "id": "campus-02",
+            "source": "primary",
+            "title": "剪辑前后对比",
+            "tags": [
+              "校园",
+              "剪辑",
+              "短视频",
+              "挑战",
+              "campus"
+            ],
+            "kind": "image",
+            "content": "合成画面：手机原片与调色成片对比，不含真实产品效果承诺。",
+            "license": "synthetic-demo"
+          }
+        ],
+        "count": 2,
+        "retained_count": 2,
+        "cached": false
+      },
+      "observed_at": "2026-10-28T14:00:28+00:00",
+      "response_id": "chatcmpl-2df454dd-27e4-96b6-ad17-503db70ff1ca",
+      "usage": {
+        "completion_tokens": 103,
+        "prompt_tokens": 3162,
+        "total_tokens": 3265
+      }
+    },
+    {
+      "sequence": 3,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "live",
+      "model": "qwen3.8-27b",
+      "tool": "estimate_cost",
+      "parameters": {
+        "variant": "standard",
+        "reason": "premium超预算，改用可行的 standard 并取得其真实估算。"
+      },
+      "rationale": "premium超预算，改用可行的 standard 并取得其真实估算。",
+      "observation": {
+        "status": "ok",
+        "variant": "standard",
+        "total_cents": 800,
+        "spent_cents": 0,
+        "script_cents": 100,
+        "production_cents": 700,
+        "remaining_minutes": 44,
+        "ready_by": "2026-10-28T10:45:00+08:00",
+        "budget_gap_cents": 0,
+        "deadline_gap_minutes": 0,
+        "within_budget": true,
+        "within_deadline": true,
+        "feasible": true,
+        "alternatives": [
+          {
+            "variant": "premium",
+            "total_cents": 1200,
+            "spent_cents": 0,
+            "script_cents": 200,
+            "production_cents": 1000,
+            "remaining_minutes": 89,
+            "ready_by": "2026-10-28T11:30:00+08:00",
+            "budget_gap_cents": 200,
+            "deadline_gap_minutes": 0,
+            "within_budget": false,
+            "within_deadline": true,
+            "feasible": false
+          },
+          {
+            "variant": "lean",
+            "total_cents": 400,
+            "spent_cents": 0,
+            "script_cents": 100,
+            "production_cents": 300,
+            "remaining_minutes": 19,
+            "ready_by": "2026-10-28T10:20:00+08:00",
+            "budget_gap_cents": 0,
+            "deadline_gap_minutes": 0,
+            "within_budget": true,
+            "within_deadline": true,
+            "feasible": true
+          }
+        ]
+      },
+      "observed_at": "2026-10-28T14:00:31+00:00",
+      "response_id": "chatcmpl-bcaceaec-dae8-9078-9e4b-76d4ca717574",
+      "usage": {
+        "completion_tokens": 51,
+        "prompt_tokens": 4047,
+        "total_tokens": 4098
+      }
+    },
+    {
+      "sequence": 4,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "live",
+      "model": "qwen3.8-27b",
+      "tool": "generate_script",
+      "parameters": {
+        "variant": "standard",
+        "material_ids": [
+          "campus-01",
+          "campus-02"
+        ],
+        "angle": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。",
+        "reason": "standard 估算可行且已有足量素材，生成脚本推进流程。"
+      },
+      "rationale": "standard 估算可行且已有足量素材，生成脚本推进流程。",
+      "observation": {
+        "status": "ok",
+        "cached": false,
+        "script": {
+          "id": "script-73fafa9d7c97",
+          "variant": "standard",
+          "title": "校园秋日短视频挑战",
+          "angle": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。",
+          "format": "30 秒短视频",
+          "material_ids": [
+            "campus-01",
+            "campus-02"
+          ],
+          "sections": [
+            {
+              "stage": "开场",
+              "text": "以校园银杏步道秋日行走开场，邀请学生发起\"秋日短视频挑战\"，用原片与调色成片对比展示剪辑玩法。：用一个生活片段引出「校园秋日短视频挑战」。"
+            },
+            {
+              "stage": "主体",
+              "text": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。 / 合成画面：手机原片与调色成片对比，不含真实产品效果承诺。"
+            },
+            {
+              "stage": "行动",
+              "text": "邀请观众围绕主题创作并发布作品；具体渠道、活动话题与审核规则由运营确认。"
+            }
+          ],
+          "generator": "local-template-v1",
+          "requires_editorial_review": true
+        },
+        "charged_cents": 100
+      },
+      "observed_at": "2026-10-28T14:00:34+00:00",
+      "response_id": "chatcmpl-c7104d8f-6ab0-97a1-a9a4-9d88a97d77ff",
+      "usage": {
+        "completion_tokens": 118,
+        "prompt_tokens": 5190,
+        "total_tokens": 5308
+      }
+    },
+    {
+      "sequence": 5,
+      "run": 1,
+      "kind": "tool",
+      "decision_source": "live",
+      "model": "qwen3.8-27b",
+      "tool": "save_plan",
+      "parameters": {
+        "variant": "standard",
+        "reason": "standard 估算可行、脚本已成功，保存方案并预留制作费用。"
+      },
+      "rationale": "standard 估算可行、脚本已成功，保存方案并预留制作费用。",
+      "observation": {
+        "status": "error",
+        "code": "TOOL_UNAVAILABLE",
+        "message": "合成业务工具被注入一次故障；可重试或调整方案",
+        "retryable": true
+      },
+      "observed_at": "2026-10-28T14:00:37+00:00",
+      "response_id": "chatcmpl-1d6af49e-52b0-962f-b968-8629e17f3769",
+      "usage": {
+        "completion_tokens": 53,
+        "prompt_tokens": 6389,
+        "total_tokens": 6442
+      }
+    },
+    {
+      "sequence": 6,
+      "run": 2,
+      "kind": "tool",
+      "decision_source": "live",
+      "model": "qwen3.8-27b",
+      "tool": "save_plan",
+      "parameters": {
+        "variant": "standard",
+        "reason": "上次保存为可重试的工具故障，脚本与估算已成功，重试保存。"
+      },
+      "rationale": "上次保存为可重试的工具故障，脚本与估算已成功，重试保存。",
+      "observation": {
+        "status": "ok",
+        "cached": false,
+        "plan_id": "plan-f74a88606084",
+        "total_cents": 800,
+        "projected_ready_by": "2026-10-28T10:45:00+08:00"
+      },
+      "observed_at": "2026-10-28T14:00:39+00:00",
+      "response_id": "chatcmpl-cf8d4595-8053-93dd-8a6b-f9f0af439635",
+      "usage": {
+        "completion_tokens": 54,
+        "prompt_tokens": 6754,
+        "total_tokens": 6808
+      }
+    }
+  ],
+  "mock_boundary": "业务工具和费用均为合成模拟。offline 是规则策略，只验证工程流程；live 才调用外部模型，不保证效果。"
+}

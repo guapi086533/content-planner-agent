@@ -1,0 +1,12 @@
+{
+  "reference_now": "2026-10-28T10:00:00+08:00",
+  "mode": "live",
+  "faults": {
+    "once": {
+      "save_plan": 1
+    }
+  },
+  "max_steps": 5,
+  "repeat": false,
+  "resume": true
+}

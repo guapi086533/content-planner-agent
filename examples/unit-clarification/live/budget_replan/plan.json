@@ -1,0 +1,108 @@
+{
+  "id": "plan-c6c545337ac8",
+  "request_id": "live-budget_replan",
+  "topic": "校园秋日短视频挑战",
+  "variant": "standard",
+  "format": "30 秒短视频",
+  "script": {
+    "id": "script-b14b725529dd",
+    "variant": "standard",
+    "title": "校园秋日短视频挑战",
+    "angle": "以校园银杏步道开场，邀请学生拍摄秋日校园片段并参与剪辑挑战，用原片与成片对比展示创作过程。",
+    "format": "30 秒短视频",
+    "material_ids": [
+      "campus-01",
+      "campus-02"
+    ],
+    "sections": [
+      {
+        "stage": "开场",
+        "text": "以校园银杏步道开场，邀请学生拍摄秋日校园片段并参与剪辑挑战，用原片与成片对比展示创作过程。：用一个生活片段引出「校园秋日短视频挑战」。"
+      },
+      {
+        "stage": "主体",
+        "text": "合成镜头：学生沿金色银杏步道行走，可用于活动开场。 / 合成画面：手机原片与调色成片对比，不含真实产品效果承诺。"
+      },
+      {
+        "stage": "行动",
+        "text": "邀请观众围绕主题创作并发布作品；具体渠道、活动话题与审核规则由运营确认。"
+      }
+    ],
+    "generator": "local-template-v1",
+    "requires_editorial_review": true
+  },
+  "material_ids": [
+    "campus-01",
+    "campus-02"
+  ],
+  "total_cents": 800,
+  "budget_cents": 1000,
+  "ledger": [
+    {
+      "id": "script:standard",
+      "kind": "incurred",
+      "cents": 100
+    },
+    {
+      "id": "production:standard",
+      "kind": "reserved",
+      "cents": 700
+    }
+  ],
+  "deadline": "2026-10-28T10:00:00+00:00",
+  "projected_ready_by": "2026-10-28T10:45:00+08:00",
+  "saved_at": "2026-10-28T14:03:17+00:00",
+  "reference_saved_at": "2026-10-28T10:07:00+08:00",
+  "execution_plan": [
+    {
+      "step": "materials",
+      "owner": "Agent",
+      "status": "succeeded",
+      "depends_on": []
+    },
+    {
+      "step": "estimate",
+      "owner": "Agent",
+      "status": "succeeded",
+      "depends_on": []
+    },
+    {
+      "step": "script",
+      "owner": "Agent",
+      "status": "succeeded",
+      "depends_on": [
+        "materials",
+        "estimate"
+      ]
+    },
+    {
+      "step": "save",
+      "owner": "Agent",
+      "status": "succeeded",
+      "depends_on": [
+        "script",
+        "estimate"
+      ]
+    },
+    {
+      "step": "production",
+      "owner": "运营/制作",
+      "status": "planned",
+      "depends_on": [
+        "save"
+      ],
+      "start_at": "2026-10-28T10:07:00+08:00",
+      "end_at": "2026-10-28T10:45:00+08:00"
+    },
+    {
+      "step": "review_and_publish",
+      "owner": "运营",
+      "status": "pending",
+      "depends_on": [
+        "production"
+      ],
+      "note": "确认文案、渠道与活动规则后执行。预估完成时间只覆盖素材制作，不含人工审核排队。"
+    }
+  ],
+  "scope": "已保存可执行活动方案；制作与发布尚未执行，费用为模拟已发生及预留金额。"
+}

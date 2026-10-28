@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "request_id": "live-missing_budget",
+  "status": "needs_input",
+  "reason": {
+    "code": "MISSING_FIELDS",
+    "missing_fields": [
+      "budget"
+    ],
+    "errors": [],
+    "message": "请补充必填字段或修正输入；未调用模型及业务工具"
+  },
+  "replayed": false,
+  "request": {
+    "topic": "校园秋日短视频挑战",
+    "deadline": "2026-10-28T10:00:00+00:00",
+    "preferred_variant": "premium"
+  },
+  "model": null,
+  "run_count": 0,
+  "total_decisions": 0,
+  "selected_variant": null,
+  "steps": {
+    "materials": {
+      "status": "pending",
+      "depends_on": []
+    },
+    "estimate": {
+      "status": "pending",
+      "depends_on": []
+    },
+    "script": {
+      "status": "pending",
+      "depends_on": [
+        "materials",
+        "estimate"
+      ]
+    },
+    "save": {
+      "status": "pending",
+      "depends_on": [
+        "script",
+        "estimate"
+      ]
+    }
+  },
+  "materials": [],
+  "scripts": {},
+  "quotes": {},
+  "cost": {
+    "currency": "SIM",
+    "budget_units": 0.0,
+    "total_units": 0.0,
+    "incurred_units": 0.0,
+    "reserved_units": 0.0,
+    "remaining_units": 0.0,
+    "ledger": []
+  },
+  "elapsed_simulated_minutes": 0,
+  "reference_started_at": "2026-10-28T10:00:00+08:00",
+  "saved_plan": null,
+  "trace": [],
+  "mock_boundary": "业务工具和费用均为合成模拟。offline 是规则策略，只验证工程流程；live 才调用外部模型，不保证效果。"
+}

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-10-28T13:50:12.889248+00:00",
+  "reference_now": "2026-10-28T10:00:00+08:00",
+  "mode": "live",
+  "cases": [
+    {
+      "case": "normal",
+      "expected_status": "completed",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "MODEL_UNAVAILABLE",
+      "matches_expected_status_and_cost": false,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "budget_replan",
+      "expected_status": "completed",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "MODEL_UNAVAILABLE",
+      "matches_expected_status_and_cost": false,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    },
+    {
+      "case": "tool_failure",
+      "expected_status": "completed",
+      "actual_status": "incomplete",
+      "total_units": 0.0,
+      "reason_code": "MODEL_UNAVAILABLE",
+      "matches_expected_status_and_cost": false,
+      "decision_mode": "live",
+      "real_model_success_evidence": false
+    }
+  ],
+  "boundary": "offline 仅证明规则 Mock 与工程约束。live 出现 MODEL_UNAVAILABLE 时不构成真实决策成功证据。"
+}

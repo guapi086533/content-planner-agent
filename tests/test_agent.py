@@ -63,6 +63,8 @@ class AgentTests(unittest.TestCase):
         self.assertEqual(result["cost"]["total_units"], 12)
         self.assertEqual(result["cost"]["incurred_units"], 2)
         self.assertEqual(result["cost"]["reserved_units"], 10)
+        self.assertEqual(result["quotes"]["premium"]["total_units"], 12)
+        self.assertEqual(result["quotes"]["premium"]["budget_units"], 20)
         self.assertTrue(all(s["status"] == "succeeded" for s in result["steps"].values()))
         self.assertEqual(result["saved_plan"]["execution_plan"][-2]["status"], "planned")
         self.assertEqual(self.store.db.execute("SELECT count(*) FROM plans").fetchone()[0], 1)

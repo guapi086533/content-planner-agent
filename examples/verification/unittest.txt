@@ -50,6 +50,6 @@ test_truncated_response_is_rejected (test_models.ModelAdapterTests.test_truncate
 test_unsafe_endpoint_is_rejected_and_local_endpoint_allowed (test_models.ModelAdapterTests.test_unsafe_endpoint_is_rejected_and_local_endpoint_allowed) ... ok
 
 ----------------------------------------------------------------------
-Ran 50 tests in 0.936s
+Ran 50 tests in 0.873s
 
 OK

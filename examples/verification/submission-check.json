@@ -1,9 +1,11 @@
 {
-  "checked_at": "2026-10-28T13:50:47.116892+00:00",
-  "files_checked": 145,
+  "checked_at": "2026-10-28T14:08:11.713496+00:00",
+  "files_checked": 261,
   "offline_cases": 14,
   "tests_run": 50,
   "errors": [],
   "passed": true,
-  "live_model_effectiveness": "not verified; see examples/live and docs/03-evaluation.md"
+  "live_model_effectiveness": "qwen3.8-27b observed tool feedback and replanned; limited synthetic evaluation",
+  "live_trace_audit_passed": true,
+  "unique_model_responses": 65
 }

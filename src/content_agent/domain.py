@@ -109,6 +109,8 @@ def quote(state: dict, variant: str, catalog: dict, clock: Clock) -> dict:
     late = max(0, math.ceil((ready - deadline).total_seconds() / 60))
     return {
         "variant": variant, "total_cents": total, "spent_cents": occupied_cents(state),
+        "currency": "SIM", "total_units": total / 100, "budget_units": state["request"]["budget_cents"] / 100,
+        "budget_gap_units": gap / 100,
         "script_cents": script_cents, "production_cents": config["production_cents"],
         "remaining_minutes": remaining_minutes, "ready_by": iso(ready),
         "budget_gap_cents": gap, "deadline_gap_minutes": late,

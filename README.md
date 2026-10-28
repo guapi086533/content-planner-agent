@@ -4,15 +4,16 @@
 
 实现了原生函数调用的 `模型选择工具 → 执行 → 回传观察 → 模型下一步选择` 循环，以及预算/时间守卫、SQLite 状态持久化、重复执行去重和失败步骤续跑。
 
-**验证现状：50 项自动测试通过，14 组离线案例通过。当前模型服务额度不足，真实模型成功决策路径尚未验证。** 离线策略是公开的固定规则 Mock，不能证明模型有重规划能力；真实服务错误与执行记录保存在 [examples/live/](examples/live/)。恢复可用模型后，需要补跑至少两条成功的真实模型路径才能证明该项效果。
+**验证现状：50 项自动测试、14 组离线案例及 14 组真实模型场景的状态/费用检查通过。** 运行时使用 `qwen3.8-27b`，已实际观察到模型在报价 12 被拒后改选 8、部分素材成功后补充来源、保存失败后复用脚本续跑。真实模型记录见 [examples/live/](examples/live/)，[自动审计](examples/verification/live-audit.json)核对了响应 ID、动作顺序和状态保留。业务工具仍为合成模拟，单轮合成验收不代表真实运营效果或泛化成功率。
 
 ## 评审入口
 
 | 内容 | 入口 |
 | --- | --- |
-| 预算 10、估算 12 后改选 8 | [运行记录](examples/offline/budget_replan/trace.md)、[实际结果](examples/offline/budget_replan/result.json)、[保存方案](examples/offline/budget_replan/plan.md) |
-| 一次素材工具故障后换来源 | [运行记录](examples/offline/tool_failure/trace.md) |
-| 保存失败，跨连接续跑只重做保存 | [首次记录](examples/offline/resume_save/first/trace.md)、[续跑记录](examples/offline/resume_save/trace.md) |
+| 真实模型：预算 10、估算 12 后改选 8 | [运行记录](examples/live/budget_replan/trace.md)、[实际结果](examples/live/budget_replan/result.json)、[保存方案](examples/live/budget_replan/plan.md) |
+| 真实模型：一次工具失败后自主重试 | [运行记录](examples/live/tool_failure/trace.md) |
+| 真实模型：部分成功后换来源补充 | [运行记录](examples/live/partial_success/trace.md) |
+| 真实模型：保存失败，续跑只重做保存 | [首次记录](examples/live/resume_save/first/trace.md)、[续跑记录](examples/live/resume_save/trace.md) |
 | 全部场景与验收点 | [examples/README.md](examples/README.md)、[评估文档](docs/03-evaluation.md) |
 | 实际测试日志 | [unittest.txt](examples/verification/unittest.txt)、[机器可读结果](examples/verification/summary.json) |
 | 模型决策接入 | [models.py](src/content_agent/models.py) |
@@ -60,7 +61,7 @@ python -m content_agent --input examples/offline/budget_replan/input.json --mode
 }
 ```
 
-`topic`、`budget`、`deadline` 必填；预算可为 0，最多两位小数；截止时间必须包含时区。`preferred_variant` 可省略，默认 premium，是可降级的偏好。模型收到的费用单位为整数分；对外费用以 SIM 模拟单位显示。
+`topic`、`budget`、`deadline` 必填；预算可为 0，最多两位小数；截止时间必须包含时区。`preferred_variant` 可省略，默认 premium，是可降级的偏好。账本内部使用整数分，100 分＝1 SIM；报价同时提供 `*_units` 显示金额供模型解释，避免把分误标为 SIM。
 
 缺少预算或截止时间时直接返回 `needs_input`，不调用模型、不执行工具，也不猜测预算和时间。
 
@@ -71,13 +72,13 @@ python -m content_agent --input examples/offline/budget_replan/input.json --mode
 ```powershell
 # 先在本机环境中安全配置 AGENT_API_KEY 或 DASHSCOPE_API_KEY。
 $env:AGENT_BASE_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1'
-$env:AGENT_MODEL = 'qwen-plus'
+$env:AGENT_MODEL = 'qwen3.8-27b'
 python -m content_agent --input examples/offline/budget_replan/input.json --mode live --now 2026-10-28T10:00:00+08:00 --db runs/live.sqlite3 --output runs/live
 ```
 
 支持原生 function calling 的 Chat Completions 兼容接口。切换供应商时同时设置 `AGENT_BASE_URL`、`AGENT_MODEL` 和 `AGENT_API_KEY`。未指定通用密钥时，阿里云地址读取 `DASHSCOPE_API_KEY`，其他地址读取 `OPENAI_API_KEY`。仅支持 Responses API 的模型不适用当前适配器。
 
-当前千问实际返回 HTTP 403 / `AllocationQuota.FreeTierOnly`。备用 OpenAI 密钥探测返回 401；未修改账户计费设置。接入代码和原生消息往返用测试替身验证过，但这不构成真实模型效果证据。
+当前默认模型为用户控制台中有可用额度的 `qwen3.8-27b`，已成功完成真实函数调用。模型能力见[阿里云官方页面](https://help.aliyun.com/zh/model-studio/qwen3-8-27b)。此前 `qwen-plus` 返回 HTTP 403，其记录保存在 [provider-errors/qwen-plus](examples/provider-errors/qwen-plus/summary.json)；单个型号额度不足不表示所有型号不可用。没有更改账户计费开关，密钥只在运行进程中使用。
 
 ## 重复执行与失败续跑
 
@@ -99,11 +100,14 @@ python -m content_agent --input examples/offline/budget_replan/input.json --mode
 ```powershell
 python scripts/verify.py
 python scripts/run_examples.py --mode offline
-# 模型配置恢复后执行；真实调用失败会保留记录并退出 2。
+# 真实模型调用消耗 API 额度；首次 14 场景验收已实际执行。
 python scripts/run_examples.py --mode live --cases normal budget_replan tool_failure
+python scripts/audit_live.py
 ```
 
-前两条命令分别生成自动测试日志和 14 组离线案例。案例生成器使用临时数据库，不会污染已有业务状态；输出均来自实际执行，没有手写成功 Trace。历史 `observed_at` 与业务参考时间分开记录，重新运行时日志时间会变化。
+前两条命令分别生成自动测试日志和 14 组离线案例。完整真实批次的命令是 `python scripts/run_examples.py --mode live`。带 `--cases` 时仅重生成所选案例及该批次汇总，建议用 `--output-root examples/recheck` 保留原有完整批次。案例生成器使用临时数据库；输出均来自实际执行。实际 `observed_at` 与业务参考时间分开记录。
+
+首轮真实运行曾出现一条金额单位说明错误，账本仍正确。已在提示与报价中补充单位，并独立复验正常、预算降级、预算无解三场景，见 [单位修正记录](examples/unit-clarification/live/summary.json)与[评估文档](docs/03-evaluation.md)。原始记录保留，未手工改写。
 
 [GitHub Actions](.github/workflows/test.yml) 配置了 Windows/Linux × Python 3.10/3.12 矩阵；本地仅验证 Windows 3.12.4，远端 CI 尚未运行。
 

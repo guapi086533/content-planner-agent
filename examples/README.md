@@ -2,7 +2,7 @@
 
 所有 `result.json`、`trace.jsonl`、`trace.md`、`plan.json`、`plan.md` 均由项目代码实际执行生成。`input.json` 是原始输入，`options.json` 记录模式、故障开关、业务参考时间和上限。生成脚本为 [run_examples.py](../scripts/run_examples.py)。
 
-**offline 是固定规则 Mock，不能证明真实模型决策效果。live 当前均因模型服务不可用失败，尚无成功的真实模型决策证据。** 两类结果分别保存在目录中，各条 Trace 均有 `decision_source`，没有伪装成模型响应的预设日志。
+**offline 是固定规则 Mock；live 是实际调用 qwen3.8-27b 的记录。** 两类结果分别保存，各条 Trace 均有 `decision_source`；真实工具调用还有模型 response_id 和 usage。14 组 live 场景状态/费用检查通过，但一条单位说明错误另有修正与复验记录，不能只看通过标记。
 
 ## 离线验收案例
 
@@ -29,19 +29,26 @@
 
 | 场景 | 业务期望 | 本次实际 |
 | --- | --- | --- |
-| [normal](live/normal/trace.md) | 正常保存 | HTTP 403 / AllocationQuota.FreeTierOnly，incomplete |
-| [budget_replan](live/budget_replan/trace.md) | 观察超预算后降级 | 首次模型调用不可用，未执行工具 |
-| [tool_failure](live/tool_failure/trace.md) | 观察工具失败后换来源 | 首次模型调用不可用，故障注入尚未触发 |
+| [normal](live/normal/trace.md) | 正常保存 | premium，12 SIM，completed |
+| [budget_replan](live/budget_replan/trace.md) | 观察超预算后降级 | 报价 12 被拒→重新估算 8→保存 standard |
+| [tool_failure](live/tool_failure/trace.md) | 观察工具失败后决定下一步 | primary 一次失败后，模型选择重试该来源并完成 |
+| [partial_success](live/partial_success/trace.md) | 部分成功后保留结果并补充 | primary 只返回一条，改用 archive 补充，原素材保留 |
+| [resume_save](live/resume_save/trace.md) | 保存失败后续跑 | 已成功脚本和素材保留，续跑只保存，费用 1→8 |
 
-汇总：[live/summary.json](live/summary.json)。这三条记录只证明不可用时能诚实停止，不证明模型完成了题目中的真实动态决策。
+完整 14 场景汇总：[live/summary.json](live/summary.json)；动态动作审计：[live-audit.json](verification/live-audit.json)。其余目录名与上表离线场景一致。缺预算/截止时间时不调用模型，属于输入守卫验收；无解、持续失败和上限场景预期返回 incomplete。
 
-模型恢复后重跑：
+早期 qwen-plus 的三次 HTTP 403 已独立保留：[provider-errors/qwen-plus](provider-errors/qwen-plus/summary.json)。用户提供截图后改用 qwen3.8-27b，未修改账户计费开关。
+
+首轮预算无解场景中，模型错误地把分写为 SIM；账本正确，原始错误仍在 [首轮 Trace](live/budget_impossible/trace.md)。单位提示和显示字段修正后的 3 场景独立批次见 [unit-clarification/live/summary.json](unit-clarification/live/summary.json)，其中[修正后说明](unit-clarification/live/budget_impossible/trace.md)正确使用 3 SIM 及最低 1 SIM 缺口。
+
+重新执行完整真实批次（消耗模型额度）：
 
 ```powershell
-python scripts/run_examples.py --mode live --cases normal budget_replan tool_failure
+python scripts/run_examples.py --mode live
+python scripts/audit_live.py
 ```
 
-至少应取得 `normal` 与 `budget_replan`（或 `tool_failure`）两条成功的真实模型路径，检查响应 ID、实际参数、工具观察及后续动作，再修改评估结论。失败不得手工改为成功。
+至少两条不同的真实模型路径已实际取得。独立复验时可添加 `--output-root examples/recheck --cases normal budget_replan`，保留原始完整批次。失败不得手工改为成功。
 
 ## 自动测试
 
